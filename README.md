@@ -1,69 +1,84 @@
-# PyraPostAI
+## PyraPostAI
 PyraPost AI | Automatización inteligente de contenido para redes sociales. Genera copys con IA, gestiona publicaciones y entrega reportes de métricas profesionales. Diseñado por PyraStack para potenciar el crecimiento digital de marcas y agencias.
 ---
 
-## 🛠️ Instalación Rápida (Quick Start)
+### 1. 🛠️ Preparación del Entorno (Dependencias)
+Creen un archivo llamado requirements.txt en la raíz y peguen esto:
 
-Sigue estos pasos para tener el proyecto funcionando en menos de 5 minutos.
-
-Creen un archivo llamado requirements.txt en la raíz de la carpeta del proyecto y peguen esto:
-
-Plaintext
+```text
 fastapi==0.110.0
 uvicorn==0.27.1
 groq==0.5.0
 httpx==0.27.0
 python-dotenv==1.0.1
+```
 
-2. Paso a paso para iniciar el proyecto
-Sigan este orden exacto para evitar errores de rutas o librerías faltantes:  
+***Parte A: Backend (Python)
+Crear entorno virtual:*** ``` python -m venv venv ```
 
-Parte A: Backend (El cerebro)
-Crear el entorno virtual: python -m venv venv.  
+Activar entorno:
 
-Activar el entorno:
+***Git Bash***: ``` source venv/Scripts/activate ```
+ O para 
+***CMD***: ``` venv\Scripts\activate ```
 
-Si usan Git Bash: source venv/Scripts/activate.  
+***Instalar librerías***: ``` pip install -r requirements.txt ```
 
-Si usan CMD: venv\Scripts\activate.  
+***Parte B: Frontend (Node.js)
+Entrar a la carpeta:*** ``` cd frontend ```
 
-Instalar librerías: pip install -r requirements.txt.  
+***Instalar dependencias:*** ``` npm install ```
 
-Encender el servidor: uvicorn app_web:app --reload.  
+## 2. 🔐 Configuración de Variables (.env)
+***IMPORTANTE: Hagan esto antes de encender los servidores. Necesitan crear dos archivos manuales basándose en los (.env.example)***.
 
-Parte B: Frontend (La interfaz)
-Entrar a la carpeta: cd frontend (o como se llame la carpeta del cliente).  
+***A. Backend (/.env en la raíz)
+Por privado les mando las keys/id's para subir .env directamente al repo*** :
 
-Instalar Node: npm install.  
+### Meta Centralizado (Cuentas de la agencia)
 
-Encender la interfaz: npm run dev.  
+```text
+FB_APP_ID=ID_PASADO_POR_JULIO
+FB_APP_SECRET=SECRET_PASADO_POR_JULIO
+INSTAGRAM_ACCOUNT_ID=IG_ID_PASADO_POR_JULIO
+FB_ACCESS_TOKEN=TOKEN_PASADO_POR_JULIO
+GROQ_API_KEY=TU_PROPIA_KEY
+--------------------------------------------------------------------------
+Tu llave de Groq: Entra a Groq Cloud, crea una API Key y pégala en tu .env.
+```
 
-🧠 3. ¿Por qué hacemos cada cosa?
-Aquí les explico la lógica de nuestro flujo de trabajo para que sepan qué estamos tocando:  
+***B. Frontend (/frontend/.env)***
 
-Sobre el proceso:
-Venv: Lo usamos para que las librerías de este proyecto no se mezclen con otras que tengan en su PC. Es nuestra "burbuja" de desarrollo.  
+``` VITE_FB_APP_ID=ID_DE_APP_JULIO ```
 
-npm install: Descarga todas las herramientas visuales (Vite, React/Vue) para que la página se vea profesional.  
+## 3. 🚀 Accesos y Permisos (Solo una vez)
 
---reload: Esta bandera en Uvicorn es clave; hace que el servidor se reinicie solo cada vez que guardamos un cambio en el código.  
 
-Sobre las librerías:
-FastAPI: Es el framework que recibe las peticiones del frontend. Es súper rápido y fácil de usar.  
+### PASO MUY IMPORTANTE PARA TRABAJAR CON LA API DE INSTAGRAM Y FACEBOOK
+<img width="905" height="416" alt="image" src="https://github.com/user-attachments/assets/59755d12-4274-4925-b2c6-c1e1d366feda" />
 
-Uvicorn: Es el motor que permite que Python corra como un servidor web.  
+***Tester en app de Meta***: Revisen su correo o entren a ``` developers.facebook.com/requests ``` y acepten la invitación de PyraPost AI. Sin esto, el login les dará error de permisos.
 
-Groq: Es nuestra conexión directa con la IA para generar los textos e imágenes de los posts en segundos.  
+## 4. ⚡ Ejecución del Proyecto
+Siempre usaremos dos terminales abiertas simultáneamente:
 
-HTTPX: Lo usamos para que nuestro servidor pueda "hablar" con otras APIs externas.  
+***Terminal 1 (Backend):*** ``` uvicorn app_web:app --reload (Puerto 8000) ```
 
-Python-dotenv: Fundamental para la seguridad; lee nuestras API Keys desde el archivo .env sin exponerlas en el código.  
+***Terminal 2 (Frontend):*** ``` cd frontend -> npm run dev (Puerto 5173) ```
 
-⚠️ Puntos clave a considerar
-Doble terminal: Siempre vamos a tener dos terminales abiertas: una para el backend (puerto 8000) y otra para el frontend (puerto 5173).  
+## 5. 📚 Glosario Rápido (¿Por qué hacemos esto?)
+***venv:*** Nuestra "burbuja" para que las librerías no choquen con otros proyectos.
 
-El archivo .env: No olviden pedírmelo o crearlo con sus propias llaves. Sin esto, la IA de Groq no va a responder.  
+***--reload:*** El servidor se reinicia solo al guardar cambios. Útil para desarrollo ágil.
 
-Node.js: Asegúrense de tener instalado Node.js en su sistema, de lo contrario los comandos npm no funcionarán.  
+***FastAPI & Uvicorn:*** El cerebro que recibe las peticiones y el motor que lo hace correr.
+
+***Groq:*** Conexión con la IA para generar los copys en segundos.
+
+***dotenv:*** Mantiene nuestras llaves seguras y fuera del código público.
+
+### 💡 Nota rápida: Usaremos las cuentas de Instagram y Facebook que creé específicamente para el modo de desarrollo de PyraPost AI. Esto nos permite probar todas las funciones de Meta (hacer posts, programar, etc.) sin que cada uno pierda tiempo configurando cuentas profesionales desde cero.
 
 ¡Cualquier duda me avisan y lo revisamos de una!
+
+
