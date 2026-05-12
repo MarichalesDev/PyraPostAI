@@ -33,7 +33,7 @@ Entrar a la carpeta:*** ``` cd frontend ```
 ***IMPORTANTE: Hagan esto antes de encender los servidores. Necesitan crear dos archivos manuales basándose en los (.env.example)***.
 
 ***A. Backend (/.env en la raíz)
-Por privado les mando las keys/id's para subir .env directamente al repo*** :
+Por privado les mando las keys/id's para no subir .env directamente al repo*** :
 
 ### Meta Centralizado (Cuentas de la agencia)
 
